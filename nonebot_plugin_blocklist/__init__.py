@@ -11,9 +11,10 @@ config = nonebot.get_driver().config
 try:
     blocklist = get_driver().config.bot_blocklist
     logger.success(f"已加载{len(blocklist)}个阻断用户")
+    logger.debug(blocklist)
 except:
     blocklist = []
-    logger.error("未读取到阻断名单，请检查env文件")
+    logger.warning("未读取到阻断名单，请检查env文件")
 
 
 user_permission = on_command("测试权限", aliases={"权限测试"})
